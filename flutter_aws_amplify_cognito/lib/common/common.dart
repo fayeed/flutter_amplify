@@ -2,7 +2,7 @@ import 'package:flutter_aws_amplify_cognito/common/user_status.dart';
 import 'package:flutter_aws_amplify_cognito/forgot_password/forgot_password_state.dart';
 import 'package:flutter_aws_amplify_cognito/sign_in/signin_state.dart';
 
-UserStatus parseUserStatus(String userStatus) {
+UserStatus parseUserStatus(String? userStatus) {
   switch (userStatus) {
     case "GUEST":
       return UserStatus.GUEST;
@@ -19,7 +19,7 @@ UserStatus parseUserStatus(String userStatus) {
   }
 }
 
-SignInState parseSignInState(String signInState) {
+SignInState parseSignInState(String? signInState) {
   switch (signInState) {
     case "SMS_MFA":
       return SignInState.SMS_MFA;
@@ -44,7 +44,7 @@ SignInState parseSignInState(String signInState) {
   }
 }
 
-ForgotPasswordState parseForgotPasswordState(String forgotPasswordState) {
+ForgotPasswordState parseForgotPasswordState(String? forgotPasswordState) {
   switch (forgotPasswordState) {
     case "DONE":
       return ForgotPasswordState.DONE;

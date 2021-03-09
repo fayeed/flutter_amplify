@@ -8,5 +8,5 @@ enum SignInState {
   NEW_PASSWORD_REQUIRED,
   DONE,
   UNKNOWN,
-  ERROR
+  ERROR,
 }

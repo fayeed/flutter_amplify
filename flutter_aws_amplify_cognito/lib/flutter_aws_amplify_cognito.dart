@@ -38,9 +38,9 @@ class FlutterAwsAmplifyCognito {
   static const EventChannel _eventChannel =
       const EventChannel('flutter_aws_amplify_cognito/cognito_user_status');
 
-  static Future<T> _invokeMethod<T>(
+  static Future<T?> _invokeMethod<T>(
     String method, {
-    Map<String, Object> arguments = const {},
+    Map<String, Object?> arguments = const {},
   }) {
     return _methodChannel.invokeMethod(method, arguments);
   }
@@ -189,9 +189,9 @@ class FlutterAwsAmplifyCognito {
   /// Sets a new password using the [confirmationCode] and [newPassword] typed by the user.
   static Future<ForgotPasswordResult> confirmForgotPassword(
       String username, String newPassword, String confirmationCode) async {
-    assert(username != null && username.length > 1);
-    assert(newPassword != null && newPassword.length > 1);
-    assert(confirmationCode != null && confirmationCode.length > 1);
+    assert(username.length > 1);
+    assert(newPassword.length > 1);
+    assert(confirmationCode.length > 1);
     try {
       Map<String, String> arguments = {
         "newPassword": newPassword,
@@ -222,7 +222,7 @@ class FlutterAwsAmplifyCognito {
   /// For Developer based custom authentication, a [cognitoIdentityId] can be mentioned.
   static Future<FederatedSignInResult> federatedSignIn(
       String identityProvider, String token,
-      [String customRoleARN, String cognitoIdentityId]) async {
+      [String? customRoleARN, String? cognitoIdentityId]) async {
     try {
       Map<String, dynamic> arguments = Map<String, dynamic>();
       arguments['identityProvider'] = identityProvider;
@@ -252,7 +252,7 @@ class FlutterAwsAmplifyCognito {
   }
 
   /// Checks and returns true if the user is signed in.
-  static Future<bool> isSignedIn() async {
+  static Future<bool?> isSignedIn() async {
     try {
       return await _invokeMethod("isSignedIn");
     } on PlatformException catch (e) {
@@ -279,7 +279,7 @@ class FlutterAwsAmplifyCognito {
   }
 
   /// Signs out the user globally from all the applications.
-  static Future<bool> signOutGlobally() async {
+  static Future<bool?> signOutGlobally() async {
     try {
       return await _invokeMethod("signOutGlobally");
     } on PlatformException catch (e) {
@@ -298,7 +298,7 @@ class FlutterAwsAmplifyCognito {
   }
 
   /// Retrieves the [username] for the current signed in user.
-  static Future<String> getUsername() async {
+  static Future<String?> getUsername() async {
     try {
       return await _invokeMethod("getUsername");
     } on PlatformException catch (e) {
@@ -307,7 +307,7 @@ class FlutterAwsAmplifyCognito {
   }
 
   /// Retrieves the [identityId] for the current signed in user.
-  static Future<String> getIdentityId() async {
+  static Future<String?> getIdentityId() async {
     try {
       return await _invokeMethod("getIdentityId");
     } on PlatformException catch (e) {
@@ -327,7 +327,7 @@ class FlutterAwsAmplifyCognito {
   }
 
   /// Retrieves the [idToken] for the currently signed in user.
-  static Future<String> getIdToken() async {
+  static Future<String?> getIdToken() async {
     try {
       return await _invokeMethod("getIdToken");
     } on PlatformException catch (e) {
@@ -336,7 +336,7 @@ class FlutterAwsAmplifyCognito {
   }
 
   /// Retrieves the [accessToken] for the currently signed in user.
-  static Future<String> getAccessToken() async {
+  static Future<String?> getAccessToken() async {
     try {
       return await _invokeMethod("getAccessToken");
     } on PlatformException catch (e) {
@@ -345,7 +345,7 @@ class FlutterAwsAmplifyCognito {
   }
 
   /// Retrieves the [refreshToken] for the currently signed in user.
-  static Future<String> getRefreshToken() async {
+  static Future<String?> getRefreshToken() async {
     try {
       return await _invokeMethod("getRefreshToken");
     } on PlatformException catch (e) {
@@ -368,7 +368,7 @@ class FlutterAwsAmplifyCognito {
   }
 
   /// Sets the current user device has `remembered` in the Cognito User Pool.
-  static Future<bool> trackDevice() async {
+  static Future<bool?> trackDevice() async {
     try {
       return await _invokeMethod("trackDevice");
     } on PlatformException catch (e) {
@@ -377,7 +377,7 @@ class FlutterAwsAmplifyCognito {
   }
 
   /// Sets the current user device has `not remembered` in the Cognito User Pool.
-  static Future<bool> untrackDevice() async {
+  static Future<bool?> untrackDevice() async {
     try {
       return await _invokeMethod("untrackDevice");
     } on PlatformException catch (e) {
@@ -386,7 +386,7 @@ class FlutterAwsAmplifyCognito {
   }
 
   /// Removes the current device affiliated with the user in the Cognito User Pool.
-  static Future<bool> forgetDevice() async {
+  static Future<bool?> forgetDevice() async {
     try {
       return await _invokeMethod("forgetDevice");
     } on PlatformException catch (e) {

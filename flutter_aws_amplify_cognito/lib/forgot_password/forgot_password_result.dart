@@ -6,8 +6,9 @@ class ForgotPasswordResult {
   final UserCodeDeliveryDetails _parameters;
 
   ForgotPasswordResult(
-      ForgotPasswordState state, UserCodeDeliveryDetails parameters)
-      : _state = state,
+    ForgotPasswordState state,
+    UserCodeDeliveryDetails parameters,
+  )   : _state = state,
         _parameters = parameters;
 
   ForgotPasswordState get state => _state;

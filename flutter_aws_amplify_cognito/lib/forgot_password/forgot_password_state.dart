@@ -1,1 +1,6 @@
-enum ForgotPasswordState { CONFIRMATION_CODE, DONE, UNKNOWN, ERROR }
+enum ForgotPasswordState {
+  CONFIRMATION_CODE,
+  DONE,
+  UNKNOWN,
+  ERROR,
+}
